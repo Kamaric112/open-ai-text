@@ -25,7 +25,7 @@ const ImageOpenAi = () => {
       frequency_penalty: 1,
       presence_penalty: 1,
     });
-    setResultText(res.data.choices[0].text!);
+    console.log(res.data.choices[0].text!);
   };
 
   const generateImage = async () => {
@@ -57,7 +57,10 @@ const ImageOpenAi = () => {
         <textarea
           className='border border-red-400'
           placeholder='Search Bears with Paint Brushes the Starry Night, painted by Vincent Van Gogh..'
-          onChange={(e) => setPromptText(e.target.value)}
+          onChange={(e) => {
+            setPromptText(e.target.value);
+            console.log(promptText);
+          }}
         />
         <button onClick={generateText}>Generate text</button>
 
